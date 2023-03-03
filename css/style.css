@@ -22,12 +22,69 @@
   font-style: normal;
   font-display: swap;
 }
-body {
-  font-family: "Roboto", serif;
-  font-weight: 400;
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", serif;
+  font-weight: 400;
+  color: #333333;
+}
+
+button {
+  border: none;
+}
+
+.left {
+  padding: 40px 140px 140px;
+}
+.left h1 {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+  margin-bottom: 78px;
+}
+.left .jokes-generator .greetings {
+  margin-bottom: 43px;
+}
+.left .jokes-generator .greetings .upper {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 44px;
+}
+.left .jokes-generator .greetings .lower {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 44px;
+}
+.left .jokes-generator .jokes-options .option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.left .jokes-generator .jokes-options .option input {
+  width: 20px;
+  height: 20px;
+  accent-color: #333333;
+  margin-right: 15px;
+}
+.left .jokes-generator .jokes-options .option label {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+}
+.left .jokes-generator .get-joke-btn {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 22px;
+  color: #FFFFFF;
+  background: linear-gradient(90.55deg, #8EA7FF 0%, #7291FF 100%);
+  border-radius: 10px;
+  padding: 10px 40px;
+  margin-top: 10px;
 }
 
 /*# sourceMappingURL=style.css.map */

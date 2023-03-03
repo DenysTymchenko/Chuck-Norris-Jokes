@@ -1,11 +1,84 @@
 @use './colors';
 @use './fonts';
 
-body{
-  font-family: 'Roboto', serif;
-  font-weight: 400;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+body {
+    font-family: 'Roboto', serif;
+    font-weight: 400;
+    color: colors.$main-text;
+}
+
+button {
+    border: none;
+}
+
+.left {
+    padding: 40px 140px 140px;
+
+    h1 {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 28px;
+
+        margin-bottom: 78px;
+    }
+
+    .jokes-generator {
+        .greetings {
+            .upper {
+                font-weight: 700;
+                font-size: 32px;
+                line-height: 44px;
+            }
+
+            .lower {
+                font-weight: 500;
+                font-size: 24px;
+                line-height: 44px;
+            }
+
+            margin-bottom: 43px;
+        }
+
+        .jokes-options {
+            .option {
+                display: flex;
+                align-items: center;
+
+                input {
+                    width: 20px;
+                    height: 20px;
+                    accent-color: colors.$main-text;
+                    margin-right: 15px;
+                }
+
+                label {
+                    font-weight: 400;
+                    font-size: 18px;
+                    line-height: 26px;
+                }
+
+                margin-bottom: 10px;
+            }
+
+        }
+
+        .get-joke-btn {
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 22px;
+            color: #FFFFFF;
+            background: linear-gradient(90.55deg, #8EA7FF 0%, #7291FF 100%);
+
+            border-radius: 10px;
+
+            padding: 10px 40px;
+            margin-top: 10px;
+        }
+    }
 }
