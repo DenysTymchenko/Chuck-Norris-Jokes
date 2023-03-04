@@ -17,6 +17,10 @@ button {
     border: none;
 }
 
+a {
+    color: colors.$links;
+}
+
 .left {
     padding: 40px 140px 140px;
 
@@ -77,8 +81,82 @@ button {
 
             border-radius: 10px;
 
+            cursor: pointer;
+
             padding: 10px 40px;
             margin-top: 10px;
+        }
+
+        margin-bottom: 40px;
+    }
+
+    .jokes-container {
+        .joke-item {
+            position: relative;
+            width: 680px;
+
+            background-color: colors.$secondary-bg;
+            border-radius: 20px;
+
+            padding: 40px;
+            padding-left: 100px;
+            margin-bottom: 10px;
+
+            .favorite {
+                position: absolute;
+                right: 40px;
+                cursor: pointer;
+            }
+
+            .joke {
+                position: relative;
+                margin: 10px 0 23px;
+
+                img.message {
+                    position: absolute;
+                    left: -60px;
+                    border-radius: 100%;
+                }
+
+                .id {
+                    font-weight: 500;
+                    font-size: 10px;
+                    line-height: 14px;
+                    color: colors.$secondary-text;
+
+                    margin-bottom: 5px;
+                }
+
+                .joke-text {
+                    font-weight: 400;
+                    font-size: 18px;
+                    line-height: 26px;
+                }
+            }
+
+            .joke-info {
+                display: flex;
+                justify-content: space-between;
+
+                .update-info {
+                    font-size: 10px;
+                    line-height: 14px;
+                    color: colors.$secondary-text;
+                }
+
+                .category {
+                    font-weight: 500;
+                    font-size: 10px;
+                    line-height: 14px;
+                    letter-spacing: 2px;
+                    text-transform: uppercase;
+
+                    background-color: colors.$main-bg;
+                    border-radius: 6px;
+
+                    padding: 6px 20px;
+                }
+            }
         }
     }
 }
