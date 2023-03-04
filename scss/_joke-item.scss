@@ -1,0 +1,55 @@
+@use './colors';
+@use './fonts';
+
+.joke-item {
+    position: relative;
+
+    .favorite {
+        position: absolute;
+        cursor: pointer;
+    }
+
+    .joke {
+        position: relative;
+        margin: 10px 0 23px;
+
+        img.message {
+            position: absolute;
+            left: -60px;
+            border-radius: 100%;
+        }
+
+        .id {
+            font-weight: 500;
+            font-size: 10px;
+            line-height: 14px;
+            color: colors.$secondary-text;
+
+            margin-bottom: 5px;
+        }
+    }
+
+    .joke-info {
+        display: flex;
+        justify-content: space-between;
+
+        .update-info {
+            font-size: 10px;
+            line-height: 14px;
+            color: colors.$secondary-text;
+        }
+
+        .category {
+            font-weight: 500;
+            font-size: 10px;
+            line-height: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+
+            background-color: colors.$main-bg;
+            border-radius: 6px;
+
+            padding: 6px 20px;
+        }
+    }
+}
