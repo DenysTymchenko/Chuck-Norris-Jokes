@@ -25,7 +25,7 @@
 .joke-item {
   position: relative;
 }
-.joke-item svg.favorite {
+.joke-item img.favorite {
   position: absolute;
   cursor: pointer;
 }
@@ -179,7 +179,7 @@ a {
   padding-left: 100px;
   margin-bottom: 10px;
 }
-.main .jokes-container .joke-item svg.favorite {
+.main .jokes-container .joke-item img.favorite {
   right: 40px;
 }
 .main .jokes-container .joke-item .joke-text {
@@ -207,7 +207,7 @@ section.favorite .jokes-container .joke-item {
   padding-left: 80px;
   margin-bottom: 20px;
 }
-section.favorite .jokes-container .joke-item svg.favorite {
+section.favorite .jokes-container .joke-item img.favorite {
   right: 20px;
 }
 section.favorite .jokes-container .joke-item .joke-text {
