@@ -128,6 +128,37 @@ a {
   font-size: 18px;
   line-height: 26px;
 }
+.left .jokes-generator .jokes-options .categories-container {
+  display: flex;
+  gap: 10px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 10px 0 20px;
+}
+.left .jokes-generator .jokes-options .categories-container .category {
+  cursor: pointer;
+  color: #ABABAB;
+  border: 2px solid #F8F8F8;
+  border-radius: 6px;
+  padding: 6px 15px;
+}
+.left .jokes-generator .jokes-options .categories-container .category.selected {
+  color: #333333;
+  background-color: #F8F8F8;
+}
+.left .jokes-generator .jokes-options #search_text {
+  width: 100%;
+  height: 42px;
+  font-size: 16px;
+  line-height: 22px;
+  border: 2px solid #333333;
+  border-radius: 10px;
+  padding: 10px 0 10px 15px;
+  margin: 10px 0;
+}
 .left .jokes-generator .get-joke-btn {
   font-weight: 700;
   font-size: 16px;
