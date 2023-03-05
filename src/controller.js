@@ -1,4 +1,5 @@
-import { getDataFromAPI } from "./model.js";
+import { categories, getDataFromAPI } from "./model.js";
+import { renderCategories } from "./view.js";
 
 //options
 const optionRandom = document.querySelector('#random');
@@ -19,6 +20,8 @@ optionRandom.addEventListener('click', () => {
 optionCategories.addEventListener('click', () => {
     categoriesContainer.style.display = 'flex';
     searchText.style.display = 'none';
+
+    renderCategories(categoriesContainer, categories)
 });
 
 optionSearch.addEventListener('click', () => {
