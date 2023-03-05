@@ -136,6 +136,8 @@ a {
   line-height: 16px;
   letter-spacing: 2px;
   text-transform: uppercase;
+  overflow: auto;
+  padding-bottom: 10px;
   margin: 10px 0 20px;
 }
 .main .jokes-generator .jokes-options .categories-container .category {
