@@ -1,4 +1,4 @@
-import { categories, getDataFromAPI } from "./model.js";
+import { categories, getDataFromAPI, getDataForRender, getRandomItemFromArr } from "./model.js";
 import { renderCategories } from "./view.js";
 
 //options
@@ -35,13 +35,15 @@ getJokeBtn.addEventListener('click', async () => {
 
     switch (selectedOptionValue) {
         case 'random':
-            console.log(await getDataFromAPI('random'));
+            const data = await getDataFromAPI('random');
+            console.log(getDataForRender(data));
             break;
         case 'categories':
             try {
                 const selectedCategory = document.querySelector('.selected');
                 const categoryName = selectedCategory.innerHTML;
-                console.log(await getDataFromAPI(`random?category=${categoryName}`));
+                const data = await getDataFromAPI(`random?category=${categoryName}`);
+                console.log(getDataForRender(data));
             } catch (e){
                 console.log(e);
             }
@@ -55,7 +57,7 @@ getJokeBtn.addEventListener('click', async () => {
                 if (data.status === 400) {
                     throw new Error('status 400');
                 } else {
-                    console.log(data);
+                    console.log(getDataForRender(getRandomItemFromArr(data)));
                 }
             } catch (e) {
                 console.log(e)
