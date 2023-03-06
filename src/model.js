@@ -7,3 +7,22 @@ export async function getDataFromAPI(path) {
 
     return data;
 }
+
+export function getDataForRender(data){
+    const { categories ,id, value, updated_at } = data;
+}
+
+function getTimeAfterLastUpdate(lastUpdate){
+    const year = +lastUpdate.slice(0,4);
+    const month = +lastUpdate.slice(5,7);
+    const day = +lastUpdate.slice(8,10);
+    const hour = +lastUpdate.slice(11,13);
+
+    const lastUpdateDate = new Date(Date.UTC(year, month - 1, day, hour));
+    const currentDate = new Date();
+
+    const millisecondsDifference  = currentDate.getTime() - lastUpdateDate.getTime();
+    const hoursDifference = Math.floor(millisecondsDifference / 3600000) //3600000 - amount of milliseconds in 1 hour
+
+    return hoursDifference;
+}
