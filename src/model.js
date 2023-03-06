@@ -27,3 +27,8 @@ function getTimeAfterLastUpdate(lastUpdate){
 
     return hoursDifference;
 }
+
+export function getRandomItemFromArr(arr){
+    const getRandomInt = max => Math.floor(Math.random() * max);
+    return arr.result[getRandomInt(arr.total)];
+}
