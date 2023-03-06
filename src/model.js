@@ -9,7 +9,8 @@ export async function getDataFromAPI(path) {
 }
 
 export function getDataForRender(data){
-    const { categories ,id, value, updated_at } = data;
+    const { categories: [ category ] ,id, value, updated_at } = data;
+    return [category, id, value, getTimeAfterLastUpdate(updated_at)];
 }
 
 function getTimeAfterLastUpdate(lastUpdate){
