@@ -62,7 +62,7 @@ function createJokeDiv(id, joke){
 
     idA.append(linkImg);
     idP.append(idA);
-    jokeDiv.append(messageImg, idP, idA, linkImg, jokeText);
+    jokeDiv.append(messageImg, idP, jokeText);
 
     return jokeDiv;
 }
