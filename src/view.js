@@ -24,19 +24,6 @@ export function renderJoke(container, jokeData) {
     const favoriteImg = document.createElement('img');
     favoriteImg.src = '../images/heart-default.svg';
     favoriteImg.alt = 'click to favorite';
-
-
-
-    const jokeInfo = document.createElement('div');
-    jokeInfo.classList.add('joke-info');
-
-    const updateInfo = document.createElement('p');
-    updateInfo.classList.add('update-info');
-    updateInfo.innerText = `Last update: ${updateInfo} hours ago`
-
-    const categoryInfo = document.createElement('p');
-    categoryInfo.classList.add('category');
-    categoryInfo.innerText = category;
 }
 
 function createJokeDiv(id, joke){
@@ -67,4 +54,26 @@ function createJokeDiv(id, joke){
     jokeDiv.append(messageImg, idP, idA, linkImg, jokeText);
 
     return jokeDiv;
+}
+
+function createJokeInfo(category, lastUpdate){
+    const jokeInfo = document.createElement('div');
+    const updateInfo = document.createElement('p');
+
+    jokeInfo.classList.add('joke-info');
+    updateInfo.classList.add('update-info');
+
+    updateInfo.innerText = `Last update: ${lastUpdate} hours ago`
+
+    jokeInfo.append(updateInfo);
+
+    if (category !== undefined) {
+        const categoryInfo = document.createElement('p');
+        categoryInfo.classList.add('category');
+        categoryInfo.innerText = category;
+
+        jokeInfo.append(categoryInfo);
+    }
+
+    return jokeInfo;
 }
