@@ -24,6 +24,7 @@
 }
 .joke-item {
   position: relative;
+  margin-bottom: 20px;
 }
 .joke-item img.favorite {
   position: absolute;
@@ -179,7 +180,6 @@ a {
   border-radius: 20px;
   padding: 40px;
   padding-left: 100px;
-  margin-bottom: 10px;
 }
 .main .jokes-container .joke-item img.favorite {
   right: 40px;
@@ -207,7 +207,6 @@ section.favorite .jokes-container .joke-item {
   border-radius: 10px;
   padding: 20px;
   padding-left: 80px;
-  margin-bottom: 20px;
 }
 section.favorite .jokes-container .joke-item img.favorite {
   right: 20px;
