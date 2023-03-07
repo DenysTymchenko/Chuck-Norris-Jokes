@@ -29,6 +29,7 @@ export function renderJoke(container, jokeData) {
     const createJokeInfo = createJokeInfo(category, lastUpdate);
 
     jokeItem.append(favoriteImg, jokeDiv, createJokeInfo);
+    container.append(jokeItem);
 }
 
 function createJokeDiv(id, joke){
