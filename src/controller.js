@@ -54,8 +54,8 @@ getJokeBtn.addEventListener('click', async () => {
                 const queryText = searchText.value;
                 const data = await getDataFromAPI(`search?query=${queryText}`);
 
-                if (data.status === 400) {
-                    throw new Error('status 400');
+                if (data.total === 0) {
+                    throw new Error('There is no joke that matches this query');
                 } else {
                     console.log(getDataForRender(getRandomItemFromArr(data)));
                 }
