@@ -2,10 +2,33 @@
 @use './fonts';
 @use './joke-item';
 
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: colors.$main-bg;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: colors.$secondary-text;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: colors.$main-text;
+}
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
 }
 
 body {
@@ -26,7 +49,13 @@ a {
 
 .main {
     width: 67%;
+    height: 100vh;
+    overflow: auto;
     padding: 40px 140px 40px 140px;
+
+    ::-webkit-scrollbar {
+        height: 10px;
+    }
 
     h1 {
         font-weight: 700;
@@ -162,7 +191,9 @@ a {
 
 section.favorite {
     width: 33%;
+    height: 100vh;
     background-color: colors.$secondary-bg;
+    overflow: auto;
     padding: 40px;
 
     h2 {

@@ -66,10 +66,33 @@
   padding: 6px 20px;
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #FFFFFF;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ABABAB;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #333333;
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -89,7 +112,12 @@ a {
 
 .main {
   width: 67%;
+  height: 100vh;
+  overflow: auto;
   padding: 40px 140px 40px 140px;
+}
+.main ::-webkit-scrollbar {
+  height: 10px;
 }
 .main h1 {
   font-weight: 700;
@@ -191,7 +219,9 @@ a {
 
 section.favorite {
   width: 33%;
+  height: 100vh;
   background-color: #F8F8F8;
+  overflow: auto;
   padding: 40px;
 }
 section.favorite h2 {
