@@ -28,26 +28,28 @@ export function renderJoke(container, jokeData) {
 
 function createJokeDiv(id, joke){
     const jokeDiv = document.createElement('div');
-    const messageImg = document.createElement('img');
-    const idP = document.createElement('p');
-    const idA = document.createElement('a');
-    const linkImg = document.createElement('img');
-    const jokeText = document.createElement('p');
-
     jokeDiv.classList.add('joke');
+
+    const messageImg = document.createElement('img');
     messageImg.classList.add('message');
-    idP.classList.add('id');
-    jokeText.classList.add('joke-text');
-
-    idP.innerText = 'ID: ';
-    idA.innerText = id;
-    jokeText.innerText = joke;
-
     messageImg.src = '../images/message-main';
     messageImg.alt = 'message img';
+
+    const idP = document.createElement('p');
+    idP.classList.add('id');
+    idP.innerText = 'ID: ';
+
+    const idA = document.createElement('a');
     idA.href = `https://api.chucknorris.io/jokes/${id}`;
+    idA.innerText = id;
+
+    const linkImg = document.createElement('img');
     linkImg.src = '../images/link.svg';
     linkImg.alt = 'link img';
+
+    const jokeText = document.createElement('p');
+    jokeText.classList.add('joke-text');
+    jokeText.innerText = joke;
 
     idA.append(linkImg);
     idP.append(idA);
@@ -58,11 +60,10 @@ function createJokeDiv(id, joke){
 
 function createJokeInfo(category, lastUpdate){
     const jokeInfo = document.createElement('div');
-    const updateInfo = document.createElement('p');
-
     jokeInfo.classList.add('joke-info');
-    updateInfo.classList.add('update-info');
 
+    const updateInfo = document.createElement('p');
+    updateInfo.classList.add('update-info');
     updateInfo.innerText = `Last update: ${lastUpdate} hours ago`
 
     jokeInfo.append(updateInfo);
