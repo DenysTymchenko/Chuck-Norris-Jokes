@@ -24,6 +24,7 @@ export function renderJoke(jokeData) {
     jokeItem.classList.add('joke-item');
 
     const favoriteImg = document.createElement('img');
+    favoriteImg.classList.add('favorite');
     favoriteImg.src = '../images/heart-default.svg';
     favoriteImg.alt = 'click to favorite';
 
