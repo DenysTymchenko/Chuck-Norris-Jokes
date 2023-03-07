@@ -24,6 +24,11 @@ export function renderJoke(container, jokeData) {
     const favoriteImg = document.createElement('img');
     favoriteImg.src = '../images/heart-default.svg';
     favoriteImg.alt = 'click to favorite';
+
+    const jokeDiv = createJokeDiv(id, joke);
+    const createJokeInfo = createJokeInfo(category, lastUpdate);
+
+    jokeItem.append(favoriteImg, jokeDiv, createJokeInfo);
 }
 
 function createJokeDiv(id, joke){
