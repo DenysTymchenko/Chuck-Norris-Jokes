@@ -40,7 +40,7 @@ function createJokeDiv(id, joke){
 
     const messageImg = document.createElement('img');
     messageImg.classList.add('message');
-    messageImg.src = '../images/message-main';
+    messageImg.src = '../images/message-main.png';
     messageImg.alt = 'message img';
 
     const idP = document.createElement('p');
