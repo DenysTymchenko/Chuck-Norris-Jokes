@@ -15,8 +15,10 @@ export function renderCategories(container, categories) {
     })
 }
 
-export function renderJoke(container, jokeData) {
+export function renderJoke(jokeData) {
     const [ category, id, joke, lastUpdate ] = jokeData;
+
+    const jokesContainer = document.querySelector('.jokes-container');
 
     const jokeItem = document.createElement('div');
     jokeItem.classList.add('joke-item');
@@ -26,10 +28,10 @@ export function renderJoke(container, jokeData) {
     favoriteImg.alt = 'click to favorite';
 
     const jokeDiv = createJokeDiv(id, joke);
-    const createJokeInfo = createJokeInfo(category, lastUpdate);
+    const JokeInfo = createJokeInfo(category, lastUpdate);
 
-    jokeItem.append(favoriteImg, jokeDiv, createJokeInfo);
-    container.append(jokeItem);
+    jokeItem.append(favoriteImg, jokeDiv, JokeInfo);
+    jokesContainer.append(jokeItem);
 }
 
 function createJokeDiv(id, joke){
