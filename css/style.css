@@ -1,115 +1,27 @@
 @font-face {
   font-family: "Roboto";
-  src: url("../fonts/Roboto/Roboto-Bold.eot");
-  src: url("../fonts/Roboto/Roboto-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/Roboto/Roboto-Bold.woff2") format("woff2"), url("../fonts/Roboto/Roboto-Bold.woff") format("woff"), url("../fonts/Roboto/Roboto-Bold.ttf") format("truetype"), url("../fonts/Roboto/Roboto-Bold.svg#Roboto-Bold") format("svg");
+  src: url("../../fonts/Roboto/Roboto-Bold.eot");
+  src: url("../../fonts/Roboto/Roboto-Bold.eot?#iefix") format("embedded-opentype"), url("../../fonts/Roboto/Roboto-Bold.woff2") format("woff2"), url("../../fonts/Roboto/Roboto-Bold.woff") format("woff"), url("../../fonts/Roboto/Roboto-Bold.ttf") format("truetype"), url("../../fonts/Roboto/Roboto-Bold.svg#Roboto-Bold") format("svg");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Roboto";
-  src: url("../fonts/Roboto/Roboto-Regular.eot");
-  src: url("../fonts/Roboto/Roboto-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Roboto/Roboto-Regular.woff2") format("woff2"), url("../fonts/Roboto/Roboto-Regular.woff") format("woff"), url("../fonts/Roboto/Roboto-Regular.ttf") format("truetype"), url("../fonts/Roboto/Roboto-Regular.svg#Roboto-Regular") format("svg");
+  src: url("../../fonts/Roboto/Roboto-Regular.eot");
+  src: url("../../fonts/Roboto/Roboto-Regular.eot?#iefix") format("embedded-opentype"), url("../../fonts/Roboto/Roboto-Regular.woff2") format("woff2"), url("../../fonts/Roboto/Roboto-Regular.woff") format("woff"), url("../../fonts/Roboto/Roboto-Regular.ttf") format("truetype"), url("../../fonts/Roboto/Roboto-Regular.svg#Roboto-Regular") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Roboto";
-  src: url("../fonts/Roboto/Roboto-Medium.eot");
-  src: url("../fonts/Roboto/Roboto-Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/Roboto/Roboto-Medium.woff2") format("woff2"), url("../fonts/Roboto/Roboto-Medium.woff") format("woff"), url("../fonts/Roboto/Roboto-Medium.ttf") format("truetype"), url("../fonts/Roboto/Roboto-Medium.svg#Roboto-Medium") format("svg");
+  src: url("../../fonts/Roboto/Roboto-Medium.eot");
+  src: url("../../fonts/Roboto/Roboto-Medium.eot?#iefix") format("embedded-opentype"), url("../../fonts/Roboto/Roboto-Medium.woff2") format("woff2"), url("../../fonts/Roboto/Roboto-Medium.woff") format("woff"), url("../../fonts/Roboto/Roboto-Medium.ttf") format("truetype"), url("../../fonts/Roboto/Roboto-Medium.svg#Roboto-Medium") format("svg");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
-.joke-item {
-  position: relative;
-  margin-bottom: 20px;
-}
-.joke-item img.favorite {
-  position: absolute;
-  cursor: pointer;
-}
-.joke-item .joke {
-  position: relative;
-  margin: 10px 0 23px;
-}
-.joke-item .joke img.message {
-  position: absolute;
-  left: -60px;
-  border-radius: 100%;
-}
-.joke-item .joke .id {
-  font-weight: 500;
-  font-size: 10px;
-  line-height: 14px;
-  color: #ABABAB;
-  margin-bottom: 5px;
-}
-.joke-item .joke-info {
-  display: flex;
-  justify-content: space-between;
-}
-.joke-item .joke-info .update-info {
-  font-size: 10px;
-  line-height: 14px;
-  color: #ABABAB;
-}
-.joke-item .joke-info .category {
-  font-weight: 500;
-  font-size: 10px;
-  line-height: 14px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  background-color: #FFFFFF;
-  border-radius: 6px;
-  padding: 6px 20px;
-}
-
-::-webkit-scrollbar {
-  width: 5px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #FFFFFF;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #ABABAB;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #333333;
-}
-
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: "Roboto", serif;
-  font-weight: 400;
-  color: #333333;
-  display: flex;
-}
-
-button {
-  border: none;
-}
-
-a {
-  color: #8EA7FF;
-}
-
 .main {
   width: 67%;
   height: 100vh;
@@ -244,6 +156,94 @@ section.favorite .jokes-container .joke-item img.favorite {
 section.favorite .jokes-container .joke-item .joke-text {
   font-size: 14px;
   line-height: 20px;
+}
+
+.joke-item {
+  position: relative;
+  margin-bottom: 20px;
+}
+.joke-item img.favorite {
+  position: absolute;
+  cursor: pointer;
+}
+.joke-item .joke {
+  position: relative;
+  margin: 10px 0 23px;
+}
+.joke-item .joke img.message {
+  position: absolute;
+  left: -60px;
+  border-radius: 100%;
+}
+.joke-item .joke .id {
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 14px;
+  color: #ABABAB;
+  margin-bottom: 5px;
+}
+.joke-item .joke-info {
+  display: flex;
+  justify-content: space-between;
+}
+.joke-item .joke-info .update-info {
+  font-size: 10px;
+  line-height: 14px;
+  color: #ABABAB;
+}
+.joke-item .joke-info .category {
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background-color: #FFFFFF;
+  border-radius: 6px;
+  padding: 6px 20px;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #FFFFFF;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ABABAB;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #333333;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Roboto", serif;
+  font-weight: 400;
+  color: #333333;
+  display: flex;
+}
+
+button {
+  border: none;
+}
+
+a {
+  color: #8EA7FF;
 }
 
 /*# sourceMappingURL=style.css.map */

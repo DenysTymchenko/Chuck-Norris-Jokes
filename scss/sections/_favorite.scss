@@ -1,0 +1,37 @@
+@use '../utilities/colors';
+
+section.favorite {
+    width: 33%;
+    height: 100vh;
+    background-color: colors.$secondary-bg;
+    overflow: auto;
+    padding: 40px;
+
+    h2 {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 28px;
+        color: colors.$secondary-text;
+
+        margin-bottom: 20px;
+    }
+
+    .jokes-container {
+        .joke-item {
+            width: 400px;
+            background-color: colors.$main-bg;
+            border-radius: 10px;
+            padding: 20px;
+            padding-left: 80px;
+
+            img.favorite {
+                right: 20px;
+            }
+
+            .joke-text {
+                font-size: 14px;
+                line-height: 20px;
+            }
+        }
+    }
+}
