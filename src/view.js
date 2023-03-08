@@ -27,6 +27,16 @@ export function renderJoke(jokeData) {
     favoriteImg.classList.add('favorite');
     favoriteImg.src = '../images/heart-default.svg';
     favoriteImg.alt = 'click to favorite';
+    favoriteImg.setAttribute('favorite','false');
+    favoriteImg.addEventListener('click', () => {
+        if(favoriteImg.getAttribute('favorite') === 'true') {
+            favoriteImg.setAttribute('favorite', 'false');
+            favoriteImg.src = '../images/heart-default.svg'
+        } else {
+            favoriteImg.setAttribute('favorite', 'true');
+            favoriteImg.src = '../images/heart-favorite.svg';
+        }
+    })
 
     const jokeDiv = createJokeDiv(id, joke);
     const JokeInfo = createJokeInfo(category, lastUpdate);
