@@ -182,6 +182,9 @@ section.favorite .jokes-container .joke-item .joke-text {
   color: #ABABAB;
   margin-bottom: 5px;
 }
+.joke-item .joke .id img {
+  margin-left: 5px;
+}
 .joke-item .joke-info {
   display: flex;
   justify-content: space-between;
