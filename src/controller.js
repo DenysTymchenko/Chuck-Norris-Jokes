@@ -36,14 +36,14 @@ getJokeBtn.addEventListener('click', async () => {
     switch (selectedOptionValue) {
         case 'random':
             const data = await getDataFromAPI('random');
-            renderJoke(getDataForRender(data));
+            renderJoke(getDataForRender(data), '.main');
             break;
         case 'categories':
             try {
                 const selectedCategory = document.querySelector('.selected');
                 const categoryName = selectedCategory.innerHTML;
                 const data = await getDataFromAPI(`random?category=${categoryName}`);
-                renderJoke(getDataForRender(data));
+                renderJoke(getDataForRender(data), '.main');
             } catch (e){
                 console.log(e);
             }
@@ -58,7 +58,7 @@ getJokeBtn.addEventListener('click', async () => {
                     throw new Error('There is no joke that matches this query');
                 } else {
                     const renderData = getDataForRender(getRandomItemFromArr(data)); //API returns array with jokes, when user using search. That's why we're using getRandomItemFromArr().
-                    renderJoke(renderData);
+                    renderJoke(renderData, '.main');
                 }
             } catch (e) {
                 console.log(e)
@@ -71,6 +71,7 @@ getJokeBtn.addEventListener('click', async () => {
 export function addToFavorite(joke) {
     favoriteJokes.unshift(joke);
     localStorage.setItem('favorite', JSON.stringify(favoriteJokes));
+    renderJoke(joke, '.favorite');
 }
 
 export function removeFromFavorite(joke) {

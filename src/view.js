@@ -17,35 +17,40 @@ export function renderCategories(container, categories) {
     })
 }
 
-export function renderJoke(jokeData) {
+export function renderJoke(jokeData, section) {
     const [ category, id, joke, lastUpdate ] = jokeData;
 
-    const jokesContainer = document.querySelector('.jokes-container');
+    const jokesContainer = document.querySelector(`${section} .jokes-container`);
 
     const jokeItem = document.createElement('div');
     jokeItem.classList.add('joke-item');
 
     const favoriteImg = document.createElement('img');
     favoriteImg.classList.add('favorite');
-    favoriteImg.src = '../images/heart-default.svg';
+    if (section === '.main') {
+        favoriteImg.src = '../images/heart-default.svg';
+        favoriteImg.setAttribute('favorite', 'false')
+    } else {
+        favoriteImg.src = '../images/heart-favorite.svg';
+        favoriteImg.setAttribute('favorite', 'true')
+    }
     favoriteImg.alt = 'click to favorite';
-    favoriteImg.setAttribute('favorite', 'false');
     favoriteImg.addEventListener('click', () => favorite(favoriteImg, jokeData));
 
-    const jokeDiv = createJokeDiv(id, joke);
+    const jokeDiv = createJokeDiv(id, joke, section);
     const JokeInfo = createJokeInfo(category, lastUpdate);
 
     jokeItem.append(favoriteImg, jokeDiv, JokeInfo);
     jokesContainer.append(jokeItem);
 }
 
-function createJokeDiv(id, joke) {
+function createJokeDiv(id, joke, section) {
     const jokeDiv = document.createElement('div');
     jokeDiv.classList.add('joke');
 
     const messageImg = document.createElement('img');
     messageImg.classList.add('message');
-    messageImg.src = '../images/message-main.png';
+    section === '.main' ? messageImg.src = '../images/message-main.png' : messageImg.src = '../images/message-favorite.png';
     messageImg.alt = 'message img';
 
     const idP = document.createElement('p');
