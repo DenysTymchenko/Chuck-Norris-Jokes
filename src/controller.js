@@ -70,9 +70,11 @@ getJokeBtn.addEventListener('click', async () => {
 
 export function addToFavorite(joke) {
     favoriteJokes.unshift(joke);
+    localStorage.setItem('favorite', JSON.stringify(favoriteJokes));
 }
 
 export function removeFromFavorite(joke) {
     const jokeIndex = favoriteJokes.indexOf(joke);
     favoriteJokes.splice(jokeIndex, 1);
+    localStorage.setItem('favorite', JSON.stringify(favoriteJokes));
 }
