@@ -1,3 +1,5 @@
+import { addToFavorite, removeFromFavorite } from "./controller.js";
+
 export function renderCategories(container, categories) {
     categories.forEach(category => {
         const categoryP = document.createElement('p');
@@ -28,9 +30,7 @@ export function renderJoke(jokeData) {
     favoriteImg.src = '../images/heart-default.svg';
     favoriteImg.alt = 'click to favorite';
     favoriteImg.setAttribute('favorite', 'false');
-    favoriteImg.addEventListener('click', () => {
-        changeFavoriteImgColor(favoriteImg);
-    })
+    favoriteImg.addEventListener('click', () => favorite(favoriteImg, jokeData));
 
     const jokeDiv = createJokeDiv(id, joke);
     const JokeInfo = createJokeInfo(category, lastUpdate);
@@ -92,11 +92,13 @@ function createJokeInfo(category, lastUpdate) {
     return jokeInfo;
 }
 
-function changeFavoriteImgColor(favoriteImg){
+function favorite(favoriteImg, jokeData) {
     if (favoriteImg.getAttribute('favorite') === 'true') {
+        removeFromFavorite(jokeData);
         favoriteImg.setAttribute('favorite', 'false');
-        favoriteImg.src = '../images/heart-default.svg'
+        favoriteImg.src = '../images/heart-default.svg';
     } else {
+        addToFavorite(jokeData);
         favoriteImg.setAttribute('favorite', 'true');
         favoriteImg.src = '../images/heart-favorite.svg';
     }

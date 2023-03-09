@@ -1,4 +1,4 @@
-import { categories, getDataFromAPI, getDataForRender, getRandomItemFromArr } from "./model.js";
+import { categories, favoriteJokes , getDataFromAPI, getDataForRender, getRandomItemFromArr } from "./model.js";
 import { renderCategories, renderJoke } from "./view.js";
 
 //options
@@ -67,3 +67,12 @@ getJokeBtn.addEventListener('click', async () => {
             break;
     }
 });
+
+export function addToFavorite(joke) {
+    favoriteJokes.unshift(joke);
+}
+
+export function removeFromFavorite(joke) {
+    const jokeIndex = favoriteJokes.indexOf(joke);
+    favoriteJokes.splice(jokeIndex, 1);
+}
