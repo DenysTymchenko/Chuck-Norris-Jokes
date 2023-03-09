@@ -27,15 +27,9 @@ export function renderJoke(jokeData) {
     favoriteImg.classList.add('favorite');
     favoriteImg.src = '../images/heart-default.svg';
     favoriteImg.alt = 'click to favorite';
-    favoriteImg.setAttribute('favorite','false');
+    favoriteImg.setAttribute('favorite', 'false');
     favoriteImg.addEventListener('click', () => {
-        if(favoriteImg.getAttribute('favorite') === 'true') {
-            favoriteImg.setAttribute('favorite', 'false');
-            favoriteImg.src = '../images/heart-default.svg'
-        } else {
-            favoriteImg.setAttribute('favorite', 'true');
-            favoriteImg.src = '../images/heart-favorite.svg';
-        }
+        changeFavoriteImgColor(favoriteImg);
     })
 
     const jokeDiv = createJokeDiv(id, joke);
@@ -45,7 +39,7 @@ export function renderJoke(jokeData) {
     jokesContainer.append(jokeItem);
 }
 
-function createJokeDiv(id, joke){
+function createJokeDiv(id, joke) {
     const jokeDiv = document.createElement('div');
     jokeDiv.classList.add('joke');
 
@@ -77,7 +71,7 @@ function createJokeDiv(id, joke){
     return jokeDiv;
 }
 
-function createJokeInfo(category, lastUpdate){
+function createJokeInfo(category, lastUpdate) {
     const jokeInfo = document.createElement('div');
     jokeInfo.classList.add('joke-info');
 
@@ -96,4 +90,14 @@ function createJokeInfo(category, lastUpdate){
     }
 
     return jokeInfo;
+}
+
+function changeFavoriteImgColor(favoriteImg){
+    if (favoriteImg.getAttribute('favorite') === 'true') {
+        favoriteImg.setAttribute('favorite', 'false');
+        favoriteImg.src = '../images/heart-default.svg'
+    } else {
+        favoriteImg.setAttribute('favorite', 'true');
+        favoriteImg.src = '../images/heart-favorite.svg';
+    }
 }
