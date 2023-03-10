@@ -1,5 +1,5 @@
 @use 'utilities/colors';
-@use 'utilities/fonts';
+@use 'fonts';
 @use 'sections/main';
 @use 'sections/favorite';
 @use 'blocks/joke-item';
@@ -29,7 +29,7 @@
     box-sizing: border-box;
 }
 
-html{
+html {
     scroll-behavior: smooth;
 }
 
