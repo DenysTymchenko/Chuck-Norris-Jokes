@@ -1,5 +1,3 @@
-import { addToFavorite, removeFromFavorite } from "./controller.js";
-
 export function renderCategories(container, categories) {
     categories.forEach(category => {
         const categoryP = document.createElement('p');
@@ -17,9 +15,7 @@ export function renderCategories(container, categories) {
     })
 }
 
-export function renderJoke(jokeData, section) {
-    const [ category, id, joke, lastUpdate ] = jokeData;
-
+export function renderJoke(joke, section) {
     const jokesContainer = document.querySelector(`${section} .jokes-container`);
 
     const jokeItem = document.createElement('div');
@@ -27,20 +23,21 @@ export function renderJoke(jokeData, section) {
 
     const favoriteImg = document.createElement('img');
     favoriteImg.classList.add('favorite');
-    if (section === '.main') {
-        favoriteImg.src = '../images/heart-default.svg';
-        favoriteImg.setAttribute('favorite', 'false')
-    } else {
+    if (joke.getFavorite) {
         favoriteImg.src = '../images/heart-favorite.svg';
-        favoriteImg.setAttribute('favorite', 'true')
+        favoriteImg.setAttribute('favorite', 'true');
+    } else {
+        favoriteImg.src = '../images/heart-default.svg';
+        favoriteImg.setAttribute('favorite', 'false');
     }
     favoriteImg.alt = 'click to favorite';
-    favoriteImg.addEventListener('click', () => favorite(favoriteImg, jokeData));
+    favoriteImg.addEventListener('click', () => favorite(joke));
 
-    const jokeDiv = createJokeDiv(id, joke, section);
-    const JokeInfo = createJokeInfo(category, lastUpdate);
+    const jokeDiv = createJokeDiv(joke.getId, joke.getJoke, section);
+    const JokeInfo = createJokeInfo(joke.getCategory, joke.getLastUpdate);
 
     jokeItem.append(favoriteImg, jokeDiv, JokeInfo);
+    joke.setJokeItem = jokeItem;
     jokesContainer.append(jokeItem);
 }
 
@@ -97,14 +94,16 @@ function createJokeInfo(category, lastUpdate) {
     return jokeInfo;
 }
 
-function favorite(favoriteImg, jokeData) {
-    if (favoriteImg.getAttribute('favorite') === 'true') {
-        removeFromFavorite(jokeData);
-        favoriteImg.setAttribute('favorite', 'false');
-        favoriteImg.src = '../images/heart-default.svg';
+function favorite(joke) {
+    const FavoriteImgMain = document.querySelector('.main img.favorite');
+
+    if (joke.getFavorite) {
+        joke.removeFromFavorite();
+        FavoriteImgMain.setAttribute('favorite', 'false');
+        FavoriteImgMain.src = '../images/heart-default.svg';
     } else {
-        addToFavorite(jokeData);
-        favoriteImg.setAttribute('favorite', 'true');
-        favoriteImg.src = '../images/heart-favorite.svg';
+        joke.addToFavorite();
+        FavoriteImgMain.setAttribute('favorite', 'true');
+        FavoriteImgMain.src = '../images/heart-favorite.svg';
     }
 }

@@ -1,3 +1,5 @@
+import { renderJoke } from "./view.js";
+
 const API = 'https://api.chucknorris.io/jokes/';
 export const categories = await getDataFromAPI('categories');
 export const favoriteJokes = [];
@@ -32,4 +34,66 @@ function getTimeAfterLastUpdate(lastUpdate){
 export function getRandomItemFromArr(arr){
     const getRandomInt = max => Math.floor(Math.random() * max);
     return arr.result[getRandomInt(arr.total)];
+}
+
+export class Joke {
+    constructor(data) {
+        const [ category, id, joke, lastUpdate ] = data;
+
+        this.category = category;
+        this.id = id;
+        this.joke = joke;
+        this.lastUpdate = lastUpdate;
+        this.favorite = false;
+    }
+
+    get getCategory() {
+        return this.category;
+    }
+
+    get getId() {
+        return this.id;
+    }
+
+    get getJoke() {
+        return this.joke;
+    }
+
+    get getLastUpdate() {
+        return this.lastUpdate;
+    }
+
+    get getFavorite() {
+        return this.favorite
+    }
+
+    set setJokeItem(jokeItem) {
+        this.jokeItem = jokeItem;
+    }
+
+    addToFavorite() {
+        this.favorite = true;
+        favoriteJokes.unshift(this);
+        localStorage.setItem('favorite', JSON.stringify(favoriteJokes));
+
+        this.renderFavorite();
+    }
+
+    removeFromFavorite() {
+        this.favorite = false;
+
+        const jokeIndex = favoriteJokes.indexOf(this);
+        favoriteJokes.splice(jokeIndex, 1);
+        localStorage.setItem('favorite', JSON.stringify(favoriteJokes));
+
+        this.jokeItem.remove();
+    }
+
+    renderMain() {
+        renderJoke(this, '.main');
+    }
+
+    renderFavorite(){
+        renderJoke(this, '.favorite');
+    }
 }

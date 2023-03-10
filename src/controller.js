@@ -1,5 +1,5 @@
-import { categories, favoriteJokes , getDataFromAPI, getDataForRender, getRandomItemFromArr } from "./model.js";
-import { renderCategories, renderJoke } from "./view.js";
+import { categories, Joke , getDataFromAPI, getDataForRender, getRandomItemFromArr } from "./model.js";
+import { renderCategories } from "./view.js";
 
 //options
 const optionRandom = document.querySelector('#random');
@@ -36,14 +36,16 @@ getJokeBtn.addEventListener('click', async () => {
     switch (selectedOptionValue) {
         case 'random':
             const data = await getDataFromAPI('random');
-            renderJoke(getDataForRender(data), '.main');
+            const joke = new Joke(getDataForRender(data));
+            joke.renderMain();
             break;
         case 'categories':
             try {
                 const selectedCategory = document.querySelector('.selected');
                 const categoryName = selectedCategory.innerHTML;
                 const data = await getDataFromAPI(`random?category=${categoryName}`);
-                renderJoke(getDataForRender(data), '.main');
+                const joke = new Joke(getDataForRender(data));
+                joke.renderMain();
             } catch (e){
                 console.log(e);
             }
@@ -57,8 +59,9 @@ getJokeBtn.addEventListener('click', async () => {
                 if (data.total === 0) {
                     throw new Error('There is no joke that matches this query');
                 } else {
-                    const renderData = getDataForRender(getRandomItemFromArr(data)); //API returns array with jokes, when user using search. That's why we're using getRandomItemFromArr().
-                    renderJoke(renderData, '.main');
+                    const jokeData = getDataForRender(getRandomItemFromArr(data)); //API returns array with jokes, when user using search. That's why we're using getRandomItemFromArr().
+                    const joke = new Joke(jokeData);
+                    joke.renderMain();
                 }
             } catch (e) {
                 console.log(e)
@@ -67,15 +70,3 @@ getJokeBtn.addEventListener('click', async () => {
             break;
     }
 });
-
-export function addToFavorite(joke) {
-    favoriteJokes.unshift(joke);
-    localStorage.setItem('favorite', JSON.stringify(favoriteJokes));
-    renderJoke(joke, '.favorite');
-}
-
-export function removeFromFavorite(joke) {
-    const jokeIndex = favoriteJokes.indexOf(joke);
-    favoriteJokes.splice(jokeIndex, 1);
-    localStorage.setItem('favorite', JSON.stringify(favoriteJokes));
-}
