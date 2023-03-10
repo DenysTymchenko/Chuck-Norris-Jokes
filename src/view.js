@@ -20,6 +20,7 @@ export function renderJoke(joke, section) {
 
     const jokeItem = document.createElement('div');
     jokeItem.classList.add('joke-item');
+    jokeItem.classList.add(`joke-item_${joke.getId}`);
 
     const favoriteImg = document.createElement('img');
     favoriteImg.classList.add('favorite');
@@ -95,15 +96,16 @@ function createJokeInfo(category, lastUpdate) {
 }
 
 function favorite(joke) {
-    const FavoriteImgMain = document.querySelector('.main img.favorite');
+    const favoriteImgMain = document.querySelector(`.main .joke-item_${joke.getId} img.favorite`);
+    console.log(favoriteImgMain);
 
     if (joke.getFavorite) {
         joke.removeFromFavorite();
-        FavoriteImgMain.setAttribute('favorite', 'false');
-        FavoriteImgMain.src = '../images/heart-default.svg';
+        favoriteImgMain.setAttribute('favorite', 'false');
+        favoriteImgMain.src = '../images/heart-default.svg';
     } else {
         joke.addToFavorite();
-        FavoriteImgMain.setAttribute('favorite', 'true');
-        FavoriteImgMain.src = '../images/heart-favorite.svg';
+        favoriteImgMain.setAttribute('favorite', 'true');
+        favoriteImgMain.src = '../images/heart-favorite.svg';
     }
 }
