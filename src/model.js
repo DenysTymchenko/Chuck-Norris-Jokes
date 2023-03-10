@@ -11,12 +11,12 @@ export async function getDataFromAPI(path) {
     return data;
 }
 
-export function getDataForRender(data){
+export function parseDataForJoke(data) {
     const { categories: [ category ] ,id, value, updated_at } = data;
     return [category, id, value, getTimeAfterLastUpdate(updated_at)];
 }
 
-function getTimeAfterLastUpdate(lastUpdate){
+function getTimeAfterLastUpdate(lastUpdate) {
     const year = +lastUpdate.slice(0,4);
     const month = +lastUpdate.slice(5,7);
     const day = +lastUpdate.slice(8,10);
@@ -31,7 +31,7 @@ function getTimeAfterLastUpdate(lastUpdate){
     return hoursDifference;
 }
 
-export function getRandomItemFromArr(arr){
+export function getRandomItemFromArr(arr) {
     const getRandomInt = max => Math.floor(Math.random() * max);
     return arr.result[getRandomInt(arr.total)];
 }

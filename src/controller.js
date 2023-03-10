@@ -1,4 +1,4 @@
-import { categories, Joke , getDataFromAPI, getDataForRender, getRandomItemFromArr } from "./model.js";
+import { categories, Joke , getDataFromAPI, parseDataForJoke, getRandomItemFromArr } from "./model.js";
 import { renderCategories } from "./view.js";
 
 //options
@@ -36,7 +36,7 @@ getJokeBtn.addEventListener('click', async () => {
     switch (selectedOptionValue) {
         case 'random':
             const data = await getDataFromAPI('random');
-            const joke = new Joke(getDataForRender(data));
+            const joke = new Joke(parseDataForJoke(data));
             joke.renderMain();
             break;
         case 'categories':
@@ -44,7 +44,7 @@ getJokeBtn.addEventListener('click', async () => {
                 const selectedCategory = document.querySelector('.selected');
                 const categoryName = selectedCategory.innerHTML;
                 const data = await getDataFromAPI(`random?category=${categoryName}`);
-                const joke = new Joke(getDataForRender(data));
+                const joke = new Joke(parseDataForJoke(data));
                 joke.renderMain();
             } catch (e){
                 console.log(e);
@@ -59,7 +59,7 @@ getJokeBtn.addEventListener('click', async () => {
                 if (data.total === 0) {
                     throw new Error('There is no joke that matches this query');
                 } else {
-                    const jokeData = getDataForRender(getRandomItemFromArr(data)); //API returns array with jokes, when user using search. That's why we're using getRandomItemFromArr().
+                    const jokeData = parseDataForJoke(getRandomItemFromArr(data)); //API returns array with jokes, when user using search. That's why we're using getRandomItemFromArr().
                     const joke = new Joke(jokeData);
                     joke.renderMain();
                 }
