@@ -133,7 +133,7 @@ export function closeFavorite() {
   const favoriteSection = document.querySelector('section.favorite');
 
   if (window.innerWidth <= 1090 && window.innerWidth > 655) {
-    favoriteSection.classList.remove('show');
+    favoriteSection.classList.remove('show-tablet');
     const blur = document.querySelector('.blur');
     blur.remove();
   } else {
