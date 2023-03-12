@@ -49,7 +49,6 @@
   line-height: 44px;
 }
 .main .jokes-generator .greetings .lower {
-  font-weight: 500;
   font-size: 24px;
   line-height: 44px;
 }
@@ -72,7 +71,6 @@
 .main .jokes-generator .jokes-options .categories-container {
   display: none;
   gap: 10px;
-  font-weight: 500;
   font-size: 12px;
   line-height: 16px;
   letter-spacing: 2px;
@@ -166,6 +164,9 @@ section.favorite .jokes-container .joke-item .joke-text {
   position: absolute;
   cursor: pointer;
 }
+.joke-item .joke-text {
+  font-weight: 400;
+}
 .joke-item .joke {
   position: relative;
   margin: 10px 0 23px;
@@ -176,9 +177,6 @@ section.favorite .jokes-container .joke-item .joke-text {
   border-radius: 100%;
 }
 .joke-item .joke .id {
-  font-weight: 500;
-  font-size: 10px;
-  line-height: 14px;
   color: #ABABAB;
   margin-bottom: 5px;
 }
@@ -190,14 +188,9 @@ section.favorite .jokes-container .joke-item .joke-text {
   justify-content: space-between;
 }
 .joke-item .joke-info .update-info {
-  font-size: 10px;
-  line-height: 14px;
   color: #ABABAB;
 }
 .joke-item .joke-info .category {
-  font-weight: 500;
-  font-size: 10px;
-  line-height: 14px;
   letter-spacing: 2px;
   text-transform: uppercase;
   background-color: #FFFFFF;
@@ -236,7 +229,9 @@ html {
 
 body {
   font-family: "Roboto", serif;
-  font-weight: 400;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 14px;
   color: #333333;
   display: flex;
 }
