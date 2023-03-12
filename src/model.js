@@ -7,9 +7,9 @@ export const favoriteJokes = JSON.parse(localStorage.getItem('favorite')) || [];
 export function renderFavoriteJokes() {
   console.log(favoriteJokes);
   if (favoriteJokes) {
-    favoriteJokes.forEach(joke => {
+    favoriteJokes.map(joke => {
       const favJoke = new Joke([joke.category, joke.id, joke.joke, joke.lastUpdate]);
-      favJoke.renderFavorite();
+      favJoke.addToFavorite();
     });
   }
 }
@@ -82,9 +82,14 @@ export class Joke {
   }
 
   addToFavorite() {
+    const isFavorited = favoriteJokes.find(joke => joke.id === this.id) !== undefined;
+
     this.favorite = true;
-    favoriteJokes.unshift(this);
-    localStorage.setItem('favorite', JSON.stringify(favoriteJokes));
+  
+    if(!isFavorited) {
+      favoriteJokes.unshift(this);
+      localStorage.setItem('favorite', JSON.stringify(favoriteJokes));
+    }
 
     this.renderFavorite();
   }

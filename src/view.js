@@ -97,7 +97,6 @@ function createJokeInfo(category, lastUpdate) {
 
 function favorite(joke) {
   const favoriteImgMain = document.querySelector(`.main .joke-item_${joke.getId} img.favorite`);
-  console.log(favoriteImgMain);
 
   if (joke.getFavorite) {
     joke.removeFromFavorite();
