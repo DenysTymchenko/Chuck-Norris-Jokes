@@ -1,5 +1,7 @@
-import { categories, Joke , getDataFromAPI, parseDataForJoke, getRandomItemFromArr } from "./model.js";
+import { categories, Joke , renderFavoriteJokes ,getDataFromAPI, parseDataForJoke, getRandomItemFromArr } from "./model.js";
 import { renderCategories, showFavorite, closeFavorite } from "./view.js";
+
+renderFavoriteJokes();
 
 //options
 const optionRandom = document.querySelector('#random');
