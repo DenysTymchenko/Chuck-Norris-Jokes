@@ -1,5 +1,5 @@
 import { categories, Joke , getDataFromAPI, parseDataForJoke, getRandomItemFromArr } from "./model.js";
-import { renderCategories } from "./view.js";
+import { renderCategories, showFavorite, closeFavorite } from "./view.js";
 
 //options
 const optionRandom = document.querySelector('#random');
@@ -10,6 +10,9 @@ const optionSearch = document.querySelector('#search');
 const categoriesContainer = document.querySelector('.categories-container');
 const searchText = document.querySelector('#search_text');
 
+//buttons
+const openFavoriteBtn = document.querySelector('.main header .favorite');
+const closeFavoriteBtn = document.querySelector('section.favorite header .favorite');
 const getJokeBtn = document.querySelector('.get-joke-btn');
 
 optionRandom.addEventListener('click', () => {
@@ -28,6 +31,9 @@ optionSearch.addEventListener('click', () => {
     categoriesContainer.style.display = 'none';
     searchText.style.display = 'block';
 });
+
+openFavoriteBtn.addEventListener('click', showFavorite);
+closeFavoriteBtn.addEventListener('click', closeFavorite);
 
 getJokeBtn.addEventListener('click', async () => {
     const selectedOption = document.querySelector('input[name="option"]:checked');
