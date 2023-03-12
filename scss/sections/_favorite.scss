@@ -1,37 +1,68 @@
 @use '../utilities/colors';
+@use '../mixins/responsive';
 
 section.favorite {
-    width: 33%;
-    height: 100vh;
-    background-color: colors.$secondary-bg;
-    overflow: auto;
-    padding: 40px;
+  width: 33%;
+  height: 100vh;
+  background-color: colors.$secondary-bg;
+  overflow: auto;
+  padding: 40px;
 
+  @include responsive.tablet {
+    display: none;
+  }
+
+  header {
     h2 {
-        font-weight: 500;
-        font-size: 20px;
-        line-height: 28px;
-        color: colors.$secondary-text;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 28px;
+      color: colors.$secondary-text;
 
-        margin-bottom: 20px;
-    }
+      margin-bottom: 20px;
 
-    .jokes-container {
-        .joke-item {
-            width: 400px;
-            background-color: colors.$main-bg;
-            border-radius: 10px;
-            padding: 20px;
-            padding-left: 80px;
-
-            img.favorite {
-                right: 20px;
-            }
-
-            .joke-text {
-                font-size: 14px;
-                line-height: 20px;
-            }
+      &.desktop {
+        @include responsive.tablet {
+          display: none;
         }
+      }
     }
+
+    .favorite {
+      justify-content: end;
+    }
+  }
+
+  .jokes-container {
+    .joke-item {
+      background-color: colors.$main-bg;
+      border-radius: 10px;
+      padding: 20px;
+      padding-left: 80px;
+
+      img.favorite {
+        right: 20px;
+      }
+
+      .joke-text {
+        font-size: 14px;
+        line-height: 20px;
+      }
+    }
+  }
+}
+
+section.show-tablet {
+  display: block;
+  width: 57%;
+  background-color: colors.$main-bg;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+section.show-mobile {
+  display: block;
+  width: 100%;
+  background-color: colors.$main-bg;
 }

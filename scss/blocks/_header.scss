@@ -1,0 +1,13 @@
+@use '../mixins/responsive';
+
+header {
+  .favorite {
+    display: none;
+    cursor: pointer;
+
+    @include responsive.tablet {
+      display: flex;
+      gap: 10px;
+    }
+  }
+}

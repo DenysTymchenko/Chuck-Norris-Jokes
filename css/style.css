@@ -22,20 +22,48 @@
   font-style: normal;
   font-display: swap;
 }
+header .favorite {
+  display: none;
+  cursor: pointer;
+}
+@media screen and (max-width: 1090px) {
+  header .favorite {
+    display: flex;
+    gap: 10px;
+  }
+}
+
 .main {
   width: 67%;
   height: 100vh;
   overflow: auto;
-  padding: 40px 140px 40px 140px;
+  padding: 40px 140px;
+}
+@media screen and (max-width: 1090px) {
+  .main {
+    width: 100%;
+    padding: 40px;
+  }
 }
 .main ::-webkit-scrollbar {
   height: 10px;
+}
+.main header {
+  margin-bottom: 78px;
+}
+@media screen and (max-width: 1090px) {
+  .main header {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.main header .favorite {
+  align-items: center;
 }
 .main h1 {
   font-weight: 700;
   font-size: 20px;
   line-height: 28px;
-  margin-bottom: 78px;
 }
 .main .jokes-generator {
   margin-bottom: 40px;
@@ -113,7 +141,6 @@
   margin-top: 10px;
 }
 .main .jokes-container .joke-item {
-  width: 680px;
   background-color: #F8F8F8;
   border-radius: 20px;
   padding: 40px;
@@ -127,6 +154,16 @@
   line-height: 26px;
 }
 
+.blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0.5;
+}
+
 section.favorite {
   width: 33%;
   height: 100vh;
@@ -134,15 +171,27 @@ section.favorite {
   overflow: auto;
   padding: 40px;
 }
-section.favorite h2 {
+@media screen and (max-width: 1090px) {
+  section.favorite {
+    display: none;
+  }
+}
+section.favorite header h2 {
   font-weight: 500;
   font-size: 20px;
   line-height: 28px;
   color: #ABABAB;
   margin-bottom: 20px;
 }
+@media screen and (max-width: 1090px) {
+  section.favorite header h2.desktop {
+    display: none;
+  }
+}
+section.favorite header .favorite {
+  justify-content: end;
+}
 section.favorite .jokes-container .joke-item {
-  width: 400px;
   background-color: #FFFFFF;
   border-radius: 10px;
   padding: 20px;
@@ -156,6 +205,21 @@ section.favorite .jokes-container .joke-item .joke-text {
   line-height: 20px;
 }
 
+section.show-tablet {
+  display: block;
+  width: 57%;
+  background-color: #FFFFFF;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+section.show-mobile {
+  display: block;
+  width: 100%;
+  background-color: #FFFFFF;
+}
+
 .joke-item {
   position: relative;
   margin-bottom: 20px;
@@ -163,6 +227,11 @@ section.favorite .jokes-container .joke-item .joke-text {
 .joke-item img.favorite {
   position: absolute;
   cursor: pointer;
+}
+@media screen and (max-width: 1090px) {
+  .joke-item img.favorite {
+    top: 25px;
+  }
 }
 .joke-item .joke-text {
   font-weight: 400;
@@ -187,10 +256,17 @@ section.favorite .jokes-container .joke-item .joke-text {
   display: flex;
   justify-content: space-between;
 }
+@media screen and (max-width: 655px) {
+  .joke-item .joke-info {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
 .joke-item .joke-info .update-info {
   color: #ABABAB;
 }
 .joke-item .joke-info .category {
+  width: fit-content;
   letter-spacing: 2px;
   text-transform: uppercase;
   background-color: #FFFFFF;

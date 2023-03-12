@@ -1,56 +1,67 @@
 @use '../utilities/colors';
 @use '../fonts';
+@use '../mixins/responsive';
 
 .joke-item {
-    position: relative;
-    margin-bottom: 20px;
+  position: relative;
+  margin-bottom: 20px;
 
-    img.favorite {
-        position: absolute;
-        cursor: pointer;
+  img.favorite {
+    position: absolute;
+    cursor: pointer;
+
+    @include responsive.tablet {
+      top: 25px;
     }
-
-    .joke-text {
-      font-weight: 400;
   }
 
-    .joke {
-        position: relative;
-        margin: 10px 0 23px;
+  .joke-text {
+    font-weight: 400;
+  }
 
-        img.message {
-            position: absolute;
-            left: -60px;
-            border-radius: 100%;
-        }
+  .joke {
+    position: relative;
+    margin: 10px 0 23px;
 
-        .id {
-            color: colors.$secondary-text;
-
-            margin-bottom: 5px;
-
-            img {
-                margin-left: 5px;
-            }
-        }
+    img.message {
+      position: absolute;
+      left: -60px;
+      border-radius: 100%;
     }
 
-    .joke-info {
-        display: flex;
-        justify-content: space-between;
+    .id {
+      color: colors.$secondary-text;
 
-        .update-info {
-            color: colors.$secondary-text;
-        }
+      margin-bottom: 5px;
 
-        .category {
-            letter-spacing: 2px;
-            text-transform: uppercase;
-
-            background-color: colors.$main-bg;
-            border-radius: 6px;
-
-            padding: 6px 20px;
-        }
+      img {
+        margin-left: 5px;
+      }
     }
+  }
+
+  .joke-info {
+    display: flex;
+    justify-content: space-between;
+
+    @include responsive.mobile {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .update-info {
+      color: colors.$secondary-text;
+    }
+
+    .category {
+      width: fit-content;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+
+      background-color: colors.$main-bg;
+      border-radius: 6px;
+
+      padding: 6px 20px;
+    }
+  }
 }
