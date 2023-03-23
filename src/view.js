@@ -25,10 +25,10 @@ export function renderJoke(joke, section) {
   const favoriteImg = document.createElement('img');
   favoriteImg.classList.add('favorite');
   if (joke.getFavorite) {
-    favoriteImg.src = '../images/heart-favorite.svg';
+    favoriteImg.src = './images/heart-favorite.svg';
     favoriteImg.setAttribute('favorite', 'true');
   } else {
-    favoriteImg.src = '../images/heart-default.svg';
+    favoriteImg.src = './images/heart-default.svg';
     favoriteImg.setAttribute('favorite', 'false');
   }
   favoriteImg.alt = 'click to favorite';
@@ -48,7 +48,7 @@ function createJokeDiv(id, joke, section) {
 
   const messageImg = document.createElement('img');
   messageImg.classList.add('message');
-  section === '.main' ? messageImg.src = '../images/message-main.png' : messageImg.src = '../images/message-favorite.png';
+  section === '.main' ? messageImg.src = './images/message-main.png' : messageImg.src = './images/message-favorite.png';
   messageImg.alt = 'message img';
 
   const idP = document.createElement('p');
@@ -60,7 +60,7 @@ function createJokeDiv(id, joke, section) {
   idA.innerText = id;
 
   const linkImg = document.createElement('img');
-  linkImg.src = '../images/link.svg';
+  linkImg.src = './images/link.svg';
   linkImg.alt = 'link img';
 
   const jokeText = document.createElement('p');
@@ -101,11 +101,11 @@ function favorite(joke) {
   if (joke.getFavorite) {
     joke.removeFromFavorite();
     favoriteImgMain.setAttribute('favorite', 'false');
-    favoriteImgMain.src = '../images/heart-default.svg';
+    favoriteImgMain.src = './images/heart-default.svg';
   } else {
     joke.addToFavorite();
     favoriteImgMain.setAttribute('favorite', 'true');
-    favoriteImgMain.src = '../images/heart-favorite.svg';
+    favoriteImgMain.src = './images/heart-favorite.svg';
   }
 }
 
